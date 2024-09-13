@@ -1,5 +1,5 @@
 void main() {
-  late final String name;
-// 다른 코드.... 다른 작업 하다가 나중에 name 변수에 값을 할당 가능.
-  name = 'Dart';
+  const name = "John";
+  // const는 컴파일 타임에 값을 결정하는 상수를 선언할 때 사용합니다.
+  // const로 선언된 변수는 재할당이 불가능하며, 프로그램 실행 중에 변경되지 않습니다.
 }
