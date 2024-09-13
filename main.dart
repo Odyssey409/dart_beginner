@@ -1,7 +1,9 @@
 void main() {
-  var name = 'Odyssey';
-  String name1 = 'Odyssey';
-
+  var name;
+  name = 'Odyssey';
   print(name);
-  print(name1);
+  name = 12;
+  print(name);
+  name = true;
+  print(name);
 }
