@@ -1,31 +1,16 @@
 void main() {
-  var player = {
-    'name': 'Messi',
-    'age': 34,
-    'superpower': false,
-  };
-// 아니면 key-value pair의 자료형을 지정하고 사용하여 Map을 생성할 수 있습니다.
-  Map<int, bool> playerSuperpowers = {
-    1: true,
-    2: false,
-    3: true,
-  };
+  var number = {1, 2, 3, 4, 5};
+// 다음과 같은 모양으로도 선언 가능
+  Set<int> number1 = {1, 2, 3, 4, 5};
+  number.add(1);
+  number.add(1);
+  number.add(1);
+  print(number);
 
-  Map<List<String>, bool> playerSuperpowers2 = {
-    ['run', 'jump']: true,
-    ['fly', 'swim']: false,
-  };
-
-  List<Map<String, Object>> SoccerPlayers = [
-    {
-      'name': 'Messi',
-      'age': 34,
-      'superpower': false,
-    },
-    {
-      'name': 'Ronaldo',
-      'age': 36,
-      'superpower': true,
-    },
-  ];
+// List와 Set의 차이점 List는 중복된 값을 허용하지만 Set은 중복된 값을 허용하지 않는다.
+  var number3 = [1, 2, 3, 4, 5];
+  number3.add(1);
+  number3.add(1);
+  number3.add(1);
+  print(number3);
 }
