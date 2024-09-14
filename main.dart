@@ -1,5 +1,6 @@
 void main() {
-  const name = "John";
-  // const는 컴파일 타임에 값을 결정하는 상수를 선언할 때 사용합니다.
-  // const로 선언된 변수는 재할당이 불가능하며, 프로그램 실행 중에 변경되지 않습니다.
+  String name = "Odyssey";
+  bool alive = true;
+  int age = 23;
+  double height = 1.85;
 }
