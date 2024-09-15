@@ -1,16 +1,19 @@
-void main() {
-  var number = {1, 2, 3, 4, 5};
-// 다음과 같은 모양으로도 선언 가능
-  Set<int> number1 = {1, 2, 3, 4, 5};
-  number.add(1);
-  number.add(1);
-  number.add(1);
-  print(number);
+void sayHello(String name) {
+  print('Hello $name nice to meet you');
+}
 
-// List와 Set의 차이점 List는 중복된 값을 허용하지만 Set은 중복된 값을 허용하지 않는다.
-  var number3 = [1, 2, 3, 4, 5];
-  number3.add(1);
-  number3.add(1);
-  number3.add(1);
-  print(number3);
+String sayHi(String name) {
+  return 'Hi $name nice to meet you';
+  // 함수가 즉시 return하면 return을 생략할 수 있고 화살표 함수로 변경할 수 있다.
+  // String sayHi(String name) => 'Hi $name nice to meet you';
+}
+
+num add(num a, num b) => a + b;
+
+void main() {
+  sayHello('John');
+  sayHello('Doe');
+  print(sayHi('Jane'));
+  print(sayHi('Doe'));
+  print(add(1, 2));
 }
