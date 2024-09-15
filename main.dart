@@ -1,31 +1,14 @@
-String sayHi({
-  String name = "anonymous",
-  int age = 0,
-  String country = "Nowhere",
-}) {
+String sayHi(String name, int age, [String? country]) {
   return 'Hi $name, you are $age years old and you\'re from $country';
-}
+} //optional parameter
 
-/* named parameters를 사용하여 함수를 정의하면, 인자가 null이거나 생략될 떄를 대비하여 기본값을 지정해야 한다. 
-이때, 기본값을 지정할 때는 '=' 연산자를 사용한다. 혹은 required를 사용하여 필수 인자로 지정할 수 있다. */
-String sayBye({
-  required String name,
-  required int age,
-  required String country,
-}) {
+String sayBye(String name, int age, [String? country = 'Nowhere']) {
   return 'Bye $name, you are $age years old and you\'re from $country';
-}
+} //optional parameter with default value
 
 void main() {
-  print(sayHi(
-    age: 12,
-    name: 'Odyssey',
-    country: 'Korea',
-  ));
-
-  print(sayBye(
-    age: 23,
-    name: 'Elon',
-    country: 'USA',
-  ));
+  print(sayHi('Odyssey', 12));
+  print(sayHi('Odyssey', 24, 'Nigeria'));
+  print(sayBye('Odyssey', 12));
+  print(sayBye('Odyssey', 24, 'Nigeria'));
 }
