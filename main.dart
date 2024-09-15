@@ -1,22 +1,27 @@
-String capitalizeName(String name) => name.toUpperCase();
+typedef ListOfInts = List<int>;
 
-String capitalizeName2(String? name) =>
-    name != null ? name.toUpperCase() : 'Name is null';
+List<int> reverseListOfNumbers(List<int> list) {
+  var reversed = list.reversed;
+  return reversed.toList();
+}
 
-// 이런 방식으로 null의 예외처리를 할 수 있다. 하지만 QQ operator를 사용하면 더 짧게 표현할 수 있다.
+// 위 함수는 아래와 같이 변경할 수 있다.
 
-String capitalizeName3(String? name) => name?.toUpperCase() ?? 'Name is null';
+ListOfInts reverseListOfNumbers2(ListOfInts list) {
+  var reversed = list.reversed;
+  return reversed.toList();
+}
+
+typedef UserInfo = Map<String, String>;
+// 물론 이 방식도 가능하지만, 이처럼 구조체를 사용하는 코드에서는 구조체 대신 클래스를 사용하는 것이 더 좋다.
+String sayHi(UserInfo userInfo) {
+  return 'Hi, ${userInfo['name']} and you are ${userInfo['age']} years old';
+}
 
 void main() {
-  print(capitalizeName('john'));
-  print(capitalizeName2('james'));
-  print(capitalizeName3('david'));
-  print(capitalizeName2(null));
-  print(capitalizeName3(null));
+  var list = [1, 2, 3, 4, 5];
+  print(reverseListOfNumbers(list));
+  print(reverseListOfNumbers2(list));
 
-  // QQ operator를 사용하여 변수가 null인 경우에 대한 예외처리도 가능하다.
-  String? name;
-  name ??= 'Default Name';
-
-  print(name);
+  sayHi({'name': 'Alice', 'age': '30'});
 }
