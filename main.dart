@@ -11,6 +11,18 @@ class Player {
     required this.age,
   });
 
+  Player.createBlueTeamPlayer({
+    required this.name,
+    required this.age,
+  })  : team = 'blue',
+        xp = 0;
+
+  Player.createRedTeamPlayer({
+    required this.name,
+    required this.age,
+  })  : team = 'red',
+        xp = 0;
+
   void sayHello() {
     print(
         "Hello my name is $name and I am $age years old. My team is $team and I have $xp xp.");
@@ -18,17 +30,13 @@ class Player {
 }
 
 void main() {
-  var player = Player(
+  var player = Player.createBlueTeamPlayer(
     name: "odyssey",
-    xp: 1500,
-    team: 'red',
     age: 23,
   );
   player.sayHello();
-  var player2 = Player(
+  var player2 = Player.createRedTeamPlayer(
     name: "nico",
-    xp: 7500,
-    team: 'blue',
     age: 25,
   );
   player2.sayHello();
