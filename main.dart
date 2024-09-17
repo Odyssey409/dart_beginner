@@ -1,8 +1,7 @@
 class Player {
   final String name;
-  int xp;
   String team;
-  int age;
+  int xp, age;
 
   Player({
     required this.name,
@@ -11,12 +10,12 @@ class Player {
     required this.age,
   });
 
-  Player.createBlueTeamPlayer({
-    required this.name,
-    required this.age,
-  })  : team = 'blue',
-        xp = 0;
-
+  Player.createBlueTeamPlayer({required String name, required int age})
+      : this.name = name,
+        this.age = age,
+        this.team = 'blue',
+        this.xp = 0;
+// 위 방식보다 아래 방식이 더 깔끔하다. this가 필요없는 이유는 생성자의 매개변수와 멤버변수의 이름이 같기 때문이다.
   Player.createRedTeamPlayer({
     required this.name,
     required this.age,
