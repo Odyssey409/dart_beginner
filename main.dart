@@ -1,3 +1,17 @@
+mixin class Strong {
+  final double strengthLevel = 1500.99;
+}
+
+mixin class Tall {
+  final double height = 6.2;
+}
+
+mixin class QuickRunner {
+  void runQuickly() {
+    print('I am running quickly');
+  }
+}
+
 class Human {
   final String name;
   Human({required this.name});
@@ -8,7 +22,7 @@ class Human {
 
 enum Team { red, blue }
 
-class Coach extends Human {
+class Coach extends Human with QuickRunner, Strong, Tall {
   final Team team;
 
   Coach({
@@ -21,6 +35,14 @@ class Coach extends Human {
     super.sayHello();
     print('I am a coach of ${team.name} team');
   }
+
+  void showStrength() {
+    print('My strength level is $strengthLevel');
+  }
+
+  void showHeight() {
+    print('My height is $height');
+  }
 }
 
 void main() {
@@ -29,4 +51,7 @@ void main() {
     name: 'John',
   );
   coach.sayHello();
+  coach.runQuickly();
+  coach.showStrength();
+  coach.showHeight();
 }
