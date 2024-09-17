@@ -1,26 +1,14 @@
 class Player {
   final String name;
+  int xp;
   String team;
-  int xp, age;
+  int age;
 
-  Player({
-    required this.name,
-    required this.xp,
-    required this.team,
-    required this.age,
-  });
-
-  Player.createBlueTeamPlayer({required String name, required int age})
-      : this.name = name,
-        this.age = age,
-        this.team = 'blue',
-        this.xp = 0;
-// 위 방식보다 아래 방식이 더 깔끔하다. this가 필요없는 이유는 생성자의 매개변수와 멤버변수의 이름이 같기 때문이다.
-  Player.createRedTeamPlayer({
-    required this.name,
-    required this.age,
-  })  : team = 'red',
-        xp = 0;
+  Player.fromJson(Map<String, dynamic> playerJson)
+      : name = playerJson['name'],
+        age = playerJson['age'],
+        team = playerJson['team'],
+        xp = playerJson['xp'];
 
   void sayHello() {
     print(
@@ -29,14 +17,35 @@ class Player {
 }
 
 void main() {
-  var player = Player.createBlueTeamPlayer(
-    name: "odyssey",
-    age: 23,
-  );
-  player.sayHello();
-  var player2 = Player.createRedTeamPlayer(
-    name: "nico",
-    age: 25,
-  );
-  player2.sayHello();
+  var apiData = [
+    {
+      "name": "John",
+      "age": 25,
+      "team": "blue",
+      "xp": 100,
+    },
+    {
+      "name": "Doe",
+      "age": 30,
+      "team": "red",
+      "xp": 200,
+    },
+    {
+      "name": "Jane",
+      "age": 35,
+      "team": "blue",
+      "xp": 300,
+    },
+    {
+      "name": "Dane",
+      "age": 40,
+      "team": "red",
+      "xp": 400,
+    },
+  ];
+
+  apiData.forEach((playerJson) {
+    var player = Player.fromJson(playerJson);
+    player.sayHello();
+  });
 }
